@@ -53,6 +53,24 @@
                 var uppercaseArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
                 var lowcaseArray = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
                 
+
+                var passLength = lengthSelect();
+                charSelect();
+
+                console.log(charToUse);
+
+    for(var i = 0; i < passLength; i++){
+    var x = Math.floor(Math.random() *  charToUse.length);
+    var y = Math.floor(Math.random() * charToUse[x].length);
+    var char = charToUse[x][y];
+    passArray.push(char);
+}
+
+console.log(passArray);
+
+
+
+
 </script>
 
 </body>
