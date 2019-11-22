@@ -5,16 +5,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
   <title>Password Generator</title>
   <link rel="stylesheet" href="./style.css">
 </head>
-
 <body>
-  <div>
-    <h4>Password: <span id="passwordDisplay"></span></h4>
+<div class="jumbotron">
+    <h1 class="text-center">Password Generator</h1>
+  </div>
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card mb-2">
+          <h3 class="card-header"><span id="passwordDisplay"></span></h3>
+        </div>
+      </div>
+    </div>
+    <div>
+    <h4><span id="passwordDisplay"></span></h4>
     <div class="container">
       <button id="generate">Generate Password</button>
-      
+      <button id="copy">Copy to Clipboard</button>
     </div>
 
   </div>
