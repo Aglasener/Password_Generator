@@ -1,25 +1,13 @@
-var count = 0;
-var incrementEl = document.querySelector("#increment");
-var decrementEl = document.querySelector("#decrement");
-var countEl = document.querySelector("#count");
-
-function setCounterText() {
-  countEl.textContent = count;
-}
-
-incrementEl.addEventListener("click", function() {
-  count++;
-  setCounterText();
-});
-
-decrementEl.addEventListener("click", function() {
-  if(count > 0) {
-    count--;
-    setCounterText();
-  }
-}); 
-
-
+var generate = document.querySelector("#generate");
+var passwordDisplay = document.querySelector("#passwordDisplay");
+var passArray = [];
+var charToUse = [];
+var specArray = ["!","#","$","%","&","(",")","*","+","-",".","/",":",";","<","=",">","?","@","^","_","~"];
+var numArray = ["1","2","3","4","5","6","7","8","9","0"];
+var uppercaseArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+var lowcaseArray = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+var passLength;
+var password = "";
 
 function lengthSelect() {
 
@@ -71,33 +59,33 @@ function charSelect() {
         charSelect();
     }
 }
-        
-        var passArray = [];
-        var charToUse = [];
-        var specArray = ["!","#","$","%","&","(",")","*","+","-",".","/",":",";","<","=",">","?","@","^","_","~"];
-        var numArray = ["1","2","3","4","5","6","7","8","9","0"];
-        var uppercaseArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-        var lowcaseArray = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-        
 
-        var passLength = lengthSelect();
-        charSelect();
+function setPassword() {
+    passwordDisplay.textContent = password;
+  }
 
-        console.log(charToUse);
+generate.addEventListener("click", function() {
+    passLength = lengthSelect();
+    charSelect();
 
-for(var i = 0; i < passLength; i++){
-var x = Math.floor(Math.random() *  charToUse.length);
-var y = Math.floor(Math.random() * charToUse[x].length);
-var char = charToUse[x][y];
-passArray.push(char);
-}
+    console.log(charToUse);
 
-console.log(passArray);
+    for(var i = 0; i < passLength; i++){
+    var x = Math.floor(Math.random() *  charToUse.length);
+    var y = Math.floor(Math.random() * charToUse[x].length);
+    var char = charToUse[x][y];
+    passArray.push(char);
+    }
 
-var password = "";
-for (var i = 0; i < passArray.length; i++){
-password = password + passArray[i];
-}
+    console.log(passArray);
 
-console.log(password);
-alert("Your password is: " + password);
+    
+    for (var i = 0; i < passArray.length; i++){
+    password = password + passArray[i];
+    }
+
+    console.log(password);
+
+    setPassword();
+    
+    });
