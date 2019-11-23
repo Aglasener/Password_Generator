@@ -1,4 +1,5 @@
 var generate = document.querySelector("#generate");
+var copyPass = document.querySelector("#copypass");
 var passwordDisplay = document.querySelector("#passwordDisplay");
 var passArray = [];
 var charToUse = [];
@@ -61,10 +62,12 @@ function charSelect() {
 }
 
 function setPassword() {
+
     passwordDisplay.textContent = password;
   }
 
 generate.addEventListener("click", function() {
+
     passLength = lengthSelect();
     charSelect();
 
@@ -89,3 +92,21 @@ generate.addEventListener("click", function() {
     setPassword();
     
     });
+
+
+const copyToClipBoard = (str) =>
+{
+    const el = document.createElement('textarea');
+    el.value = str;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+};
+
+copyPass.addEventListener("click", function()
+{
+    var copyText = document.querySelector("#passwordDisplay").textContent;
+
+    copyToClipBoard(copyText);
+});
